@@ -42,15 +42,41 @@ class LinkedList:
         prev.next = new_node 
         new_node.next = curr 
 
+    def reverse_link_list(self):
+        '''O(n) space'''
+        current_node = self.head
+        prev_node = None 
+        while(current_node is not None):
+            next = current_node.next 
+            current_node.next = prev_node
+            prev_node = current_node 
+            current_node = next 
+        self.head = prev_node 
+
+    def reverse(self):
+        prev = None
+        current = self.head
+        while(current is not None):
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+
 if __name__ == '__main__':
     ll_obj = LinkedList()
     ll_obj.insert_node_to_left(10)
     ll_obj.insert_node_to_left(20)
     ll_obj.insert_node_to_left(30)
     ll_obj.insert_node_to_left(40)
+    print('link list')
     ll_obj.display_node()
     ll_obj.count_nodes()
+    print('insert 100 & 300')
     ll_obj.insert_key(2, 100)
+    ll_obj.insert_key(3, 300)
     ll_obj.display_node()
-    
+    ll_obj.reverse_link_list()
+    print('reverse')
+    ll_obj.display_node() 
 
