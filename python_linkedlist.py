@@ -53,15 +53,6 @@ class LinkedList:
             current_node = next 
         self.head = prev_node 
 
-    def reverse(self):
-        prev = None
-        current = self.head
-        while(current is not None):
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
-        self.head = prev
 
 if __name__ == '__main__':
     ll_obj = LinkedList()
